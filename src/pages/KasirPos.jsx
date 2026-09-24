@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
 import CustomerProfileCard from '../components/pos/CustomerProfileCard.jsx'
+import OrderList from '../components/pos/OrderList.jsx'
 import PosStatusBanner from '../components/pos/PosStatusBanner.jsx'
 import ReceiptDialog from '../components/pos/ReceiptDialog.jsx'
+import { createOrder, listOrders } from '../services/ordersService'
 import {
   FRAGRANCES,
   HYGIENE_ADDONS,
@@ -36,6 +38,12 @@ export default function KasirPos() {
   const [payMethod, setPayMethod] = useState('tunai')
   const [cashNominal, setCashNominal] = useState(100000)
   const [receiptOpen, setReceiptOpen] = useState(false)
+  const [currentNota, setCurrentNota] = useState('CK-20250524-0042')
+  const [orders, setOrders] = useState([])
+  const [ordersLoading, setOrdersLoading] = useState(false)
+  const [ordersError, setOrdersError] = useState(null)
+  const [saving, setSaving] = useState(false)
+  const [saveNotice, setSaveNotice] = useState(null)
 
   const tier = SERVICE_TIERS.find((item) => item.id === tierId) ?? SERVICE_TIERS[1]
   const activeFragrance = FRAGRANCES.find((item) => item.id === fragrance) ?? FRAGRANCES[1]
@@ -91,7 +99,7 @@ export default function KasirPos() {
   const applyVoucher = () => setAppliedVoucher(voucherCode.trim().toUpperCase())
 
   const receiptOrder = {
-    nota: 'CK-20250524-0042',
+    nota: currentNota,
     kasir: 'Sari',
     dateTime: '24/05/2025 09:42',
     customer: 'Budi Santoso (Gold)',
@@ -124,10 +132,142 @@ export default function KasirPos() {
     changeValue: payMethod === 'tunai' ? rupiah(cashChange) : null,
   }
 
+  const refreshOrders = async () => {
+    setOrdersLoading(true)
+    setOrdersError(null)
+    try {
+      setOrders(await listOrders())
+    } catch (error) {
+      setOrdersError(error.message)
+    } finally {
+      setOrdersLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    // Muat daftar order dari Supabase saat halaman dibuka
+    refreshOrders()
+  }, [])
+
+  const generateNota = () => {
+    const now = new Date()
+    const date = [
+      now.getFullYear(),
+      String(now.getMonth() + 1).padStart(2, '0'),
+      String(now.getDate()).padStart(2, '0'),
+    ].join('')
+    const todayCount = orders.filter((order) => order.nota?.startsWith(`CK-${date}`)).length + 1
+    return `CK-${date}-${String(todayCount).padStart(4, '0')}`
+  }
+
+  const buildOrderPayload = (nota) => ({
+    nota,
+    customer_name: 'Budi Santoso',
+    customer_phone: '0812-8899-1234',
+    customer_tier: 'Gold Member',
+    service_tier_id: tier.id,
+    service_tier_label: `Cuci Komplit ${tier.cartLabel}`,
+    weight_kg: weight,
+    fragrance: activeFragrance.label,
+    delivery_method: delivery,
+    notes,
+    items: [
+      {
+        name: `Cuci Komplit ${tier.cartLabel}`,
+        detail: `${weight.toFixed(2)} kg x ${rupiah(tier.price)}`,
+        amount: kiloTotal,
+      },
+      ...selectedUnitItems.map((item) => ({
+        name: item.cartLabel,
+        detail: `1 pcs x ${rupiah(item.price)}`,
+        amount: item.price,
+      })),
+      ...(deliveryFee
+        ? [
+            {
+              name: 'Ongkos Antar Kurir Tebet',
+              detail: 'Zona 1 (Radius < 3 km)',
+              amount: deliveryFee,
+            },
+          ]
+        : []),
+    ],
+    subtotal_cucian: subtotalCucian,
+    delivery_fee: deliveryFee,
+    voucher_code: voucherDiscount > 0 ? appliedVoucher : null,
+    voucher_discount: voucherDiscount,
+    points_discount: pointsDiscount,
+    total: totalTagihan,
+    pay_status: payStatus,
+    pay_method: payMethod,
+    cash_nominal: payMethod === 'tunai' ? cashNominal : null,
+    cash_change: payMethod === 'tunai' ? cashChange : null,
+  })
+
+  const handleCheckout = async () => {
+    if (saving) return
+    setSaving(true)
+    setSaveNotice(null)
+    const payload = buildOrderPayload(generateNota())
+    try {
+      let saved
+      try {
+        saved = await createOrder(payload)
+      } catch (error) {
+        // Unique violation nomor nota → coba sekali lagi dengan nomor acak
+        if (error?.code === '23505') {
+          const fallbackNota = `CK-${payload.nota.slice(3, 11)}-${String(
+            Math.floor(1000 + Math.random() * 9000),
+          )}`
+          saved = await createOrder({ ...payload, nota: fallbackNota })
+        } else {
+          throw error
+        }
+      }
+      setCurrentNota(saved.nota)
+      setSaveNotice({
+        type: 'success',
+        text: `Order ${saved.nota} berhasil disimpan ke Supabase.`,
+      })
+      setReceiptOpen(true)
+      refreshOrders()
+    } catch (error) {
+      setSaveNotice({ type: 'error', text: error.message || 'Gagal menyimpan order ke Supabase.' })
+    } finally {
+      setSaving(false)
+    }
+  }
+
   return (
     <div className="flex flex-col w-full gap-space-md">
       {/* Status & Quick Announcement Bar */}
       <PosStatusBanner />
+
+      {/* Save Confirmation / Error Notice */}
+      {saveNotice && (
+        <div
+          className={`flex items-center justify-between gap-space-sm px-space-md py-2.5 rounded-xl shadow-sm ${
+            saveNotice.type === 'success'
+              ? 'bg-secondary-fixed text-on-secondary-fixed'
+              : 'bg-error-container text-on-error-container'
+          }`}
+          role="alert"
+        >
+          <div className="flex items-center gap-space-xs font-label-md text-label-md">
+            <span className="material-symbols-outlined text-sm">
+              {saveNotice.type === 'success' ? 'check_circle' : 'error'}
+            </span>
+            <span>{saveNotice.text}</span>
+          </div>
+          <button
+            className="p-1 rounded hover:bg-black/5"
+            onClick={() => setSaveNotice(null)}
+            type="button"
+          >
+            <span className="material-symbols-outlined text-sm">close</span>
+          </button>
+        </div>
+      )}
 
       {/* Dual-Pane Core Grid */}
       <div className="grid grid-cols-12 gap-space-md items-start">
@@ -522,7 +662,7 @@ export default function KasirPos() {
               </div>
               <div className="flex items-center justify-between">
                 <span className="font-receipt-mono text-headline-sm font-bold text-on-surface">
-                  #CK-20250524-0042
+                  #{currentNota}
                 </span>
                 <span className="material-symbols-outlined text-secondary text-sm">print</span>
               </div>
@@ -777,13 +917,14 @@ export default function KasirPos() {
             {/* Execution Triggers */}
             <div className="flex flex-col gap-space-xs pt-space-xs">
               <button
-                className="w-full py-3.5 rounded-xl bg-primary-container hover:bg-opacity-95 text-on-primary font-headline-sm text-headline-sm flex items-center justify-center gap-space-sm shadow-md active:scale-95 transition-all"
+                className="w-full py-3.5 rounded-xl bg-primary-container hover:bg-opacity-95 text-on-primary font-headline-sm text-headline-sm flex items-center justify-center gap-space-sm shadow-md active:scale-95 transition-all disabled:opacity-60 disabled:cursor-wait disabled:active:scale-100"
+                disabled={saving}
                 id="btn-process-checkout"
-                onClick={() => setReceiptOpen(true)}
+                onClick={handleCheckout}
                 type="button"
               >
                 <span className="material-symbols-outlined">receipt_long</span>
-                <span>Proses &amp; Cetak Nota</span>
+                <span>{saving ? 'Menyimpan ke Supabase...' : 'Proses & Cetak Nota'}</span>
                 <kbd className="bg-secondary/40 text-on-primary px-2 py-0.5 rounded font-receipt-mono text-label-sm">
                   Enter
                 </kbd>
@@ -809,6 +950,14 @@ export default function KasirPos() {
           </div>
         </div>
       </div>
+
+      {/* Daftar order tersimpan di Supabase */}
+      <OrderList
+        error={ordersError}
+        loading={ordersLoading}
+        onRefresh={refreshOrders}
+        orders={orders}
+      />
 
       {/* Interactive Thermal Receipt Preview Modal (80mm roll printer output) */}
       <ReceiptDialog onClose={() => setReceiptOpen(false)} open={receiptOpen} order={receiptOrder} />
