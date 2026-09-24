@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+
+<html lang="id"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"secondary-fixed":"#e2dfff","surface-container-highest":"#d3e4fe","outline":"#777683","inverse-surface":"#213145","surface-container-low":"#eff4ff","on-error":"#ffffff","on-secondary-fixed-variant":"#3c379f","tertiary-container":"#001e2c","outline-variant":"#c7c5d3","primary":"#000000","on-secondary":"#ffffff","primary-container":"#070666","on-primary":"#ffffff","on-tertiary":"#ffffff","surface-bright":"#f8f9ff","surface-variant":"#d3e4fe","primary-fixed-dim":"#bfc1ff","surface-container":"#e5eeff","on-tertiary-fixed-variant":"#004c68","on-tertiary-container":"#488bad","surface":"#f8f9ff","on-background":"#0b1c30","surface-dim":"#cbdbf5","surface-container-lowest":"#ffffff","on-surface":"#0b1c30","inverse-on-surface":"#eaf1ff","primary-fixed":"#e1e0ff","background":"#f8f9ff","on-primary-container":"#777cd3","error":"#ba1a1a","on-primary-fixed-variant":"#393d91","secondary-container":"#9592fe","on-secondary-fixed":"#0f0069","error-container":"#ffdad6","tertiary-fixed-dim":"#8dcff3","surface-container-high":"#dce9ff","on-surface-variant":"#464651","on-secondary-container":"#29228d","on-tertiary-fixed":"#001e2c","secondary":"#5451b8","on-primary-fixed":"#070666","tertiary":"#000000","inverse-primary":"#bfc1ff","surface-tint":"#5156aa","on-error-container":"#93000a"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin":"1.5rem","margin-compact":"1rem","space-lg":"1.5rem","gutter-lg":"1.5rem","gutter":"1rem","space-xs":"0.25rem","space-md":"1rem","space-2xs":"0.125rem","space-2xl":"3rem","space-sm":"0.5rem","space-xl":"2rem"},"fontFamily":{"headline-md":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"display-md":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"receipt-mono":["JetBrains Mono"],"display-lg":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"data-metric":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"]},"fontSize":{"headline-md":["18px",{"lineHeight":"26px","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"display-md":["24px",{"lineHeight":"32px","fontWeight":"700"}],"headline-sm":["16px",{"lineHeight":"24px","fontWeight":"600"}],"headline-lg":["20px",{"lineHeight":"28px","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","fontWeight":"600"}],"label-lg":["14px",{"lineHeight":"20px","fontWeight":"600"}],"receipt-mono":["12px",{"lineHeight":"18px","fontWeight":"500"}],"display-lg":["32px",{"lineHeight":"40px","fontWeight":"700"}],"label-sm":["11px",{"lineHeight":"14px","fontWeight":"700"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"data-metric":["28px",{"lineHeight":"36px","fontWeight":"700"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}]}}}}</script></head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-primary-container z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)] text-on-primary"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center justify-between bg-primary-container"><div class="flex items-center gap-space-sm"><img alt="Logo Laundry CuciKita" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7BLiOHkqFlP0rcfIjHW_yEp5Sj3cMiyYvmCPbwvLjAbCAFQdXsCbojwBBX4W4pkX5gLGne_4CueZD-XOUqsTPLhrYRnDLJBhT-nEKfKzR9UBQOeQQMBOVwdfryd4cgWxQFZH3fzNVzdSpEobTQ48J8wfkKUEdB29Mh38GaciiMA4KoX-H8y2bWIH9d9XNe6OaVNtmlu7ghaOyp1FbjBEqnYqZmtm92ah0fG8CKFGTqS_QoDSAlYdmmQ"/><span class="font-headline-sm text-headline-sm tracking-tight text-on-primary">CuciKita</span></div><span class="px-space-xs py-space-2xs rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm uppercase">POS</span></div><div class="px-space-md py-space-sm"><div class="bg-on-primary-container/20 rounded-lg p-space-sm flex items-center justify-between text-on-primary"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-sm">store</span><div class="flex flex-col"><span class="font-label-sm text-label-sm text-primary-fixed-dim leading-none">Outlet Aktif</span><span class="font-label-md text-label-md truncate max-w-[130px]">Tebet, Jaksel</span></div></div><span class="material-symbols-outlined text-sm text-primary-fixed-dim">expand_more</span></div></div><nav class="flex flex-col gap-space-xs px-space-md mt-space-sm" data-active-classes="bg-secondary text-on-secondary font-headline-sm rounded-lg"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-primary-fixed-dim font-label-lg text-label-lg hover:bg-secondary-container hover:text-on-secondary-container transition-all" data-path="pos" href="#"><span class="material-symbols-outlined">point_of_sale</span><span>Kasir POS</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-primary-fixed-dim font-label-lg text-label-lg hover:bg-secondary-container hover:text-on-secondary-container transition-all" data-path="operasional" href="#"><span class="material-symbols-outlined">local_laundry_service</span><span>Operasional &amp; Kanban</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-primary-fixed-dim font-label-lg text-label-lg hover:bg-secondary-container hover:text-on-secondary-container transition-all" data-path="crm" href="#"><span class="material-symbols-outlined">group</span><span>Pelanggan &amp; CRM</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-primary-fixed-dim font-label-lg text-label-lg hover:bg-secondary-container hover:text-on-secondary-container transition-all" data-path="inventaris" href="#"><span class="material-symbols-outlined">inventory_2</span><span>Stok &amp; Bahan Baku</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-primary-fixed-dim font-label-lg text-label-lg hover:bg-secondary-container hover:text-on-secondary-container transition-all" data-path="laporan" href="#"><span class="material-symbols-outlined">monitoring</span><span>Laporan Keuangan</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-primary-fixed-dim font-label-lg text-label-lg hover:bg-secondary-container hover:text-on-secondary-container transition-all" data-path="settings" href="#"><span class="material-symbols-outlined">settings</span><span>Pengaturan &amp; WA</span></a></nav></div><div class="p-space-md flex flex-col gap-space-sm bg-primary-container"><div class="bg-on-primary-container/20 rounded-lg p-space-sm flex flex-col gap-space-2xs text-on-primary"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-primary-fixed-dim">Shift Kasir Pagi</span><span class="inline-flex items-center gap-space-2xs px-space-xs py-space-2xs rounded-full bg-surface-container-lowest text-on-surface font-label-sm text-label-sm"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>Aktif</span></div><span class="font-label-md text-label-md truncate">Sari Permata</span><span class="font-body-sm text-body-sm text-primary-fixed-dim">07:00 - 15:00 WIB</span></div><a class="flex items-center justify-between px-space-md py-space-xs text-primary-fixed-dim hover:text-on-primary hover:bg-secondary-container rounded-lg transition-colors" data-path="login" href="#"><span class="flex items-center gap-space-xs font-label-md text-label-md"><span class="material-symbols-outlined text-sm">logout</span>Tutup Shift / Keluar</span><span class="font-label-sm text-label-sm text-primary-fixed-dim">Esc</span></a></div></aside><div class="pl-64 flex flex-col min-h-screen"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 px-space-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md flex-1 max-w-xl"><div class="relative w-full"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span><input class="w-full pl-10 pr-4 py-2 bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest shadow-[0_1px_3px_0_rgba(3,1,100,0.04)]" placeholder="Cari nota, nama, nomor telepon pelanggan... (Ctrl + K)" type="text"/></div></div><div class="flex items-center gap-space-md"><div class="hidden xl:flex items-center gap-space-xs bg-surface-container-low px-space-sm py-1.5 rounded-full"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="font-label-sm text-label-sm text-on-surface">Outlet Buka</span><span class="text-outline font-label-sm text-label-sm">•</span><span class="font-label-sm text-label-sm text-on-surface-variant">09:42:15 WIB</span></div><div class="flex items-center gap-space-xs"><button class="flex items-center gap-space-xs px-space-md py-2 bg-primary-container text-on-primary rounded-lg font-label-md text-label-md shadow-[0_1px_3px_0_rgba(3,1,100,0.04)] active:scale-95 transition-all" type="button"><span class="material-symbols-outlined text-sm">add_circle</span><span>Order Baru</span><kbd class="bg-secondary/40 text-on-primary px-1.5 py-0.5 rounded font-receipt-mono text-label-sm">F2</kbd></button><button class="hidden sm:flex items-center gap-space-xs px-space-md py-2 bg-surface-container-lowest text-on-surface rounded-lg font-label-md text-label-md shadow-[0_1px_3px_0_rgba(3,1,100,0.04)] hover:bg-surface-container-low transition-all" type="button"><span class="material-symbols-outlined text-sm">receipt_long</span><span>Cek Nota</span><kbd class="bg-surface-container-high text-on-surface-variant px-1.5 py-0.5 rounded font-receipt-mono text-label-sm">F3</kbd></button></div><div class="flex items-center gap-space-sm"><div class="relative"><button class="p-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors relative" type="button"><span class="material-symbols-outlined">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error"></span></button></div><div class="flex items-center gap-space-sm pl-space-xs"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUxuWVkJI70IJSyWqjt7WGCE3w8j0aI7Fl5CYigkwx72zljXubl0q8B8-RuAWztdp95ZI8vVx3zo8VYaXbJkJKBk6srm2n2SNzSnTfJ9nlN9sSsPQ8IQgkKbAp80vz79lVsSNln_MiKPGeZ8YFEk2dpbq204bjbfxSsqr74TF7RpEqTCaBvuBQt1a7Rxpgjc2C7pkD3a9MfAiBPHo24umDJPZjvNK9qEZpzuEUzf2JkNdmX07f3U7lww"/><div class="hidden md:flex flex-col text-left"><span class="font-label-md text-label-md text-on-surface leading-tight">Sari Permata</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-tight">Kasir Utama</span></div></div></div></div></header><main class="relative pt-16 bg-background flex-1 w-full px-space-lg py-space-md"><div class="flex flex-col w-full gap-space-lg pb-space-2xl">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-space-2xs">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-space-2xs rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm uppercase tracking-wider">CRM &amp; Loyalty Hub</span>
+<span class="text-outline font-label-sm text-label-sm">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-secondary">sync</span>
+          Sinkronisasi WhatsApp Cloud API Aktif
+        </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Pelanggan &amp; Manajemen Keanggotaan</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Kelola basis data member CuciKita, pantau poin loyalitas, serta automasi re-engagement pesan WhatsApp.</p>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="flex items-center gap-space-xs px-space-md py-2.5 bg-surface-container-lowest text-on-surface rounded-lg font-label-md text-label-md shadow-sm hover:bg-surface-container-low transition-all" type="button">
+<span class="material-symbols-outlined text-sm">download</span>
+<span>Ekspor CSV</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-2.5 bg-surface-container-highest text-on-surface rounded-lg font-label-md text-label-md hover:bg-surface-container-high transition-all" type="button">
+<span class="material-symbols-outlined text-sm">mark_email_unread</span>
+<span>Pemicu Broadcast</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-2.5 bg-primary-container text-on-primary rounded-lg font-label-md text-label-md shadow-md active:scale-98 transition-all" type="button">
+<span class="material-symbols-outlined text-sm">person_add</span>
+<span>Tambah Member Baru</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 left-0 right-0 h-1 bg-primary-container"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">Total Pelanggan Terdaftar</span>
+<span class="font-data-metric text-data-metric text-on-surface mt-space-2xs">1.248</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">Akun member terverifikasi</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined">group</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-secondary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs">arrow_upward</span>
+          +12.4% bln lalu
+        </span>
+<span class="text-on-surface-variant">87% Return Rate</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 left-0 right-0 h-1 bg-secondary"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">Pelanggan Aktif Bulan Ini</span>
+<span class="font-data-metric text-data-metric text-on-surface mt-space-2xs">482</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">Min. 1 order 30 hari terakhir</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined">local_laundry_service</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between font-label-sm text-label-sm">
+<div class="w-28 bg-surface-container-low h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 62%;"></div>
+</div>
+<span class="text-on-surface-variant">38.6% Total Basis</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 left-0 right-0 h-1 bg-tertiary-container"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">Poin Loyalty Beredar</span>
+<div class="flex items-baseline gap-1.5 mt-space-2xs">
+<span class="font-data-metric text-data-metric text-on-surface">18.450</span>
+<span class="font-label-md text-label-md text-secondary">CKP</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">Senilai Rp 1.845.000 cuci gratis</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-tertiary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant">Telah ditukar: 4.120 CKP</span>
+<span class="text-secondary font-label-sm">Rasio: 22.3%</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 left-0 right-0 h-1 bg-surface-tint"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">Pelanggan Baru Minggu Ini</span>
+<div class="flex items-baseline gap-1.5 mt-space-2xs">
+<span class="font-data-metric text-data-metric text-on-surface">+34</span>
+<span class="font-label-sm text-label-sm text-secondary font-receipt-mono">member</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">Dari Tebet &amp; sekitarnya</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-surface-tint">
+<span class="material-symbols-outlined">how_to_reg</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-secondary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs">trending_up</span>
+          +8 akun vs minggu lalu
+        </span>
+<span class="text-on-surface-variant">Target 30/mgg</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start">
+<div class="xl:col-span-7 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-md">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-1 bg-surface-container-low p-1 rounded-lg">
+<button class="px-space-sm py-1.5 rounded bg-surface-container-lowest text-on-surface font-label-sm text-label-sm shadow-sm transition-all" type="button">Semua (1.248)</button>
+<button class="px-space-sm py-1.5 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all" type="button">Regular (680)</button>
+<button class="px-space-sm py-1.5 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all" type="button">Silver (340)</button>
+<button class="px-space-sm py-1.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm transition-all flex items-center gap-1" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Gold (188)
+            </button>
+<button class="px-space-sm py-1.5 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all" type="button">Platinum VIP (40)</button>
+</div>
+<div class="relative w-full md:w-64">
+<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-outline text-sm">search</span>
+<input class="w-full pl-8 pr-3 py-1.5 bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest shadow-sm" placeholder="Cari ID, nama, no HP..." type="text" value="Budi"/>
+</div>
+</div>
+<div class="overflow-x-auto rounded-lg">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm">
+<th class="py-2.5 px-3 font-label-sm">ID &amp; Member</th>
+<th class="py-2.5 px-3 font-label-sm">Kontak WhatsApp</th>
+<th class="py-2.5 px-3 font-label-sm">Tier &amp; Poin</th>
+<th class="py-2.5 px-3 font-label-sm text-right">Total Transaksi</th>
+<th class="py-2.5 px-3 font-label-sm">Terakhir Cuci</th>
+<th class="py-2.5 px-3 font-label-sm text-center">Aksi</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm divide-y-0">
+<tr class="bg-secondary-fixed/30 hover:bg-secondary-fixed/50 transition-colors relative">
+<td class="py-3 px-3">
+<div class="flex items-center gap-space-xs">
+<div class="w-1.5 h-8 bg-secondary rounded-full"></div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface flex items-center gap-1">
+                        Budi Santoso
+                        <span class="material-symbols-outlined text-xs text-secondary" title="Pelanggan Terverifikasi">verified</span>
+</span>
+<span class="font-receipt-mono text-label-sm text-on-surface-variant">#CKM-0042</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1.5">
+<span class="font-receipt-mono text-label-sm text-on-surface">0812-8899-2311</span>
+<a class="w-6 h-6 rounded bg-surface-container-highest flex items-center justify-center text-primary-container hover:bg-secondary hover:text-on-secondary transition-all" href="https://wa.me/6281288992311" target="_blank" title="Buka WhatsApp Langsung">
+<span class="material-symbols-outlined text-xs">chat</span>
+</a>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-label-sm w-max">
+<span class="material-symbols-outlined text-xs text-secondary" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+                      Gold Tier
+                    </span>
+<span class="font-label-sm text-label-sm text-secondary font-receipt-mono mt-0.5">420 CKP</span>
+</div>
+</td>
+<td class="py-3 px-3 text-right">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Rp 1.480.000</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-receipt-mono">38 Nota • 184.2 kg</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface">2 hari lalu</span>
+<span class="font-label-sm text-label-sm text-secondary font-receipt-mono">Order #CK-0038</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Tambah Poin Loyalty" type="button">
+<span class="material-symbols-outlined text-sm">add_circle_outline</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Riwayat Nota" type="button">
+<span class="material-symbols-outlined text-sm">receipt_long</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Edit Profil" type="button">
+<span class="material-symbols-outlined text-sm">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-3">
+<div class="flex items-center gap-space-xs">
+<div class="w-1.5 h-8 bg-transparent rounded-full"></div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Siti Rahmawati</span>
+<span class="font-receipt-mono text-label-sm text-on-surface-variant">#CKM-0089</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1.5">
+<span class="font-receipt-mono text-label-sm text-on-surface">0857-1122-9080</span>
+<a class="w-6 h-6 rounded bg-surface-container-highest flex items-center justify-center text-primary-container hover:bg-secondary hover:text-on-secondary transition-all" href="#">
+<span class="material-symbols-outlined text-xs">chat</span>
+</a>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm w-max">
+                      Silver Tier
+                    </span>
+<span class="font-label-sm text-label-sm text-outline font-receipt-mono mt-0.5">180 CKP</span>
+</div>
+</td>
+<td class="py-3 px-3 text-right">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Rp 820.000</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-receipt-mono">19 Nota • 96.0 kg</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface">6 hari lalu</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Selesai</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">add_circle_outline</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">receipt_long</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="bg-surface-container-low/40 hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-3">
+<div class="flex items-center gap-space-xs">
+<div class="w-1.5 h-8 bg-transparent rounded-full"></div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface flex items-center gap-1">
+                        dr. Hendra Kusuma
+                        <span class="material-symbols-outlined text-xs text-primary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+</span>
+<span class="font-receipt-mono text-label-sm text-on-surface-variant">#CKM-0015</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1.5">
+<span class="font-receipt-mono text-label-sm text-on-surface">0811-9008-7651</span>
+<a class="w-6 h-6 rounded bg-surface-container-highest flex items-center justify-center text-primary-container hover:bg-secondary hover:text-on-secondary transition-all" href="#">
+<span class="material-symbols-outlined text-xs">chat</span>
+</a>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm w-max">
+                      Platinum VIP
+                    </span>
+<span class="font-label-sm text-label-sm text-secondary font-receipt-mono mt-0.5">890 CKP</span>
+</div>
+</td>
+<td class="py-3 px-3 text-right">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Rp 3.840.000</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-receipt-mono">54 Nota • 240.5 kg</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-error font-medium">17 hari lalu</span>
+<span class="font-label-sm text-label-sm text-error/80">Perlu Follow-up</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">add_circle_outline</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">receipt_long</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="bg-surface-container-lowest hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-3">
+<div class="flex items-center gap-space-xs">
+<div class="w-1.5 h-8 bg-transparent rounded-full"></div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Anisa Wijaya</span>
+<span class="font-receipt-mono text-label-sm text-on-surface-variant">#CKM-0312</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1.5">
+<span class="font-receipt-mono text-label-sm text-on-surface">0813-4455-8910</span>
+<a class="w-6 h-6 rounded bg-surface-container-highest flex items-center justify-center text-primary-container hover:bg-secondary hover:text-on-secondary transition-all" href="#">
+<span class="material-symbols-outlined text-xs">chat</span>
+</a>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm w-max">
+                      Regular Tier
+                    </span>
+<span class="font-label-sm text-label-sm text-outline font-receipt-mono mt-0.5">50 CKP</span>
+</div>
+</td>
+<td class="py-3 px-3 text-right">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Rp 230.000</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-receipt-mono">6 Nota • 28.0 kg</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface">5 hari lalu</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Ambil di Toko</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">add_circle_outline</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">receipt_long</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="flex items-center justify-between pt-space-xs font-label-sm text-label-sm text-on-surface-variant">
+<span>Menampilkan 1-4 dari 188 member terpilih</span>
+<div class="flex items-center gap-1">
+<button class="p-1.5 rounded bg-surface-container-low hover:bg-surface-container-high text-on-surface disabled:opacity-50" disabled="" type="button">
+<span class="material-symbols-outlined text-xs">chevron_left</span>
+</button>
+<span class="px-2 py-1 bg-primary-container text-on-primary rounded font-receipt-mono">1</span>
+<button class="px-2 py-1 rounded hover:bg-surface-container-low font-receipt-mono" type="button">2</button>
+<button class="px-2 py-1 rounded hover:bg-surface-container-low font-receipt-mono" type="button">3</button>
+<button class="p-1.5 rounded bg-surface-container-low hover:bg-surface-container-high text-on-surface" type="button">
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary">campaign</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">WhatsApp Retention &amp; Win-Back Automation</span>
+</div>
+<span class="px-space-xs py-space-2xs rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-receipt-mono">Auto-Trigger</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Otomatis kirim voucher pengingat via pesan WhatsApp resmi CuciKita ke <strong class="text-on-surface">64 pelanggan</strong> yang sudah tidak melakukan transaksi cuci lebih dari 14 hari.
+        </p>
+<div class="bg-surface-container-low rounded-lg p-space-sm flex flex-col sm:flex-row items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined">send_and_archive</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Voucher: "KANGENCUCIKITAKG"</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Potongan Rp 10.000 min. 5 kg cuci setrika komplit</span>
+</div>
+</div>
+<button class="w-full sm:w-auto px-space-md py-2 bg-secondary text-on-secondary rounded-lg font-label-md text-label-md hover:bg-secondary-container hover:text-on-secondary-container transition-all flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-sm">schedule_send</span>
+            Kirim ke 64 Pelanggan
+          </button>
+</div>
+</div>
+</div>
+<div class="xl:col-span-5 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-md relative overflow-hidden">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Detail Terpilih</span>
+</div>
+<span class="font-receipt-mono text-label-sm text-primary-container font-medium bg-surface-container-high px-2 py-0.5 rounded">ID: #CKM-0042</span>
+</div>
+<div class="flex items-start gap-space-md">
+<div class="relative">
+<img class="w-16 h-16 rounded-xl object-cover shadow-sm" data-alt="Portrait photography of a friendly Indonesian male customer in his 30s wearing a casual navy polo shirt, natural warm indoor studio lighting, sharp focus and corporate profile style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk3DYhFlpTGol-kHMNlihYZNLbuDmnnp8CA31ewVl1dAGdI8ix3My4EM4z4AY4lQTmesyZQ9Bt9HLlQZ00o-M0vrJ5BcR36fuhjhvj284UYHwmioUkzRd2vtb4ksEaOBLmY14SWdiEQSNmL3QBGuCJ-pmHUV9j5qgv96c1OHF-ZgduD3MU-SunXcQCamOoKcyS8gCMQEy7NXPTQexLwI_BXtOMsOqB0CSmoU06dpK9xV0RAVXOhLE0cg"/>
+<span class="absolute -bottom-1 -right-1 bg-surface-container-highest text-primary-container p-0.5 rounded-full flex items-center justify-center" title="Gold Tier Member">
+<span class="material-symbols-outlined text-xs">workspace_premium</span>
+</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md text-on-surface truncate">Budi Santoso</h2>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container-highest text-on-secondary-fixed-variant font-label-sm text-label-sm">Gold Tier</span>
+</div>
+<span class="font-receipt-mono text-body-sm text-on-surface-variant mt-0.5">0812-8899-2311</span>
+<span class="font-body-sm text-body-sm text-outline flex items-center gap-1 mt-1 truncate">
+<span class="material-symbols-outlined text-xs">home_pin</span>
+              Jl. Tebet Timur Dalam IV No. 12, Jakarta Selatan
+            </span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-lg p-space-sm flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Hak Istimewa (Membership Privileges):</span>
+<span class="font-label-sm text-label-sm text-secondary font-receipt-mono">Aktif s/d Des 2025</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs mt-1">
+<div class="bg-surface-container-lowest p-2 rounded flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm">percent</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface">Diskon 10%</span>
+<span class="font-body-sm text-xs text-on-surface-variant">Setiap hari Selasa</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-2 rounded flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm">local_shipping</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface">Free Delivery</span>
+<span class="font-body-sm text-xs text-on-surface-variant">Radius 3 km Tebet</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface">5 Transaksi Terakhir</span>
+<a class="font-label-sm text-label-sm text-secondary hover:underline" href="#">Semua Nota (38)</a>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-space-xs">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<div class="flex flex-col">
+<span class="font-receipt-mono text-label-sm text-on-surface font-medium">#CK-0038</span>
+<span class="font-body-sm text-xs text-on-surface-variant">Cuci Setrika Reguler (4.5 kg)</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-receipt-mono text-label-sm text-on-surface font-medium">Rp 45.000</span>
+<span class="font-label-sm text-xs text-secondary bg-surface-container-highest px-1.5 py-0.2 rounded">Sedang Dicuci</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-space-xs">
+<div class="w-2 h-2 rounded-full bg-primary-container"></div>
+<div class="flex flex-col">
+<span class="font-receipt-mono text-label-sm text-on-surface font-medium">#CK-0012</span>
+<span class="font-body-sm text-xs text-on-surface-variant">Bedcover King + Sprei (1 Set)</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-receipt-mono text-label-sm text-on-surface font-medium">Rp 75.000</span>
+<span class="font-label-sm text-xs text-on-surface-variant bg-surface-container-high px-1.5 py-0.2 rounded">Selesai &amp; Diambil</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-space-xs">
+<div class="w-2 h-2 rounded-full bg-primary-container"></div>
+<div class="flex flex-col">
+<span class="font-receipt-mono text-label-sm text-on-surface font-medium">#CK-9941</span>
+<span class="font-body-sm text-xs text-on-surface-variant">Cuci Kilat 6 Jam (6.0 kg)</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-receipt-mono text-label-sm text-on-surface font-medium">Rp 90.000</span>
+<span class="font-label-sm text-xs text-on-surface-variant bg-surface-container-high px-1.5 py-0.2 rounded">Selesai &amp; Diambil</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary">phone_iphone</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface leading-tight">Live Portal Cek Mandiri</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Preview tampilan web pelanggan via tautan SMS / WA</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-low px-2 py-1 rounded">cek.cucikita.id</span>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col items-center">
+<div class="w-full max-w-xs bg-surface-container-lowest rounded-2xl shadow-md p-space-md flex flex-col gap-space-sm relative">
+<div class="flex items-center justify-between pb-1 border-b border-surface-container-high">
+<div class="flex items-center gap-1.5">
+<div class="w-4 h-4 rounded-full bg-primary-container flex items-center justify-center text-[10px] text-on-primary font-bold">C</div>
+<span class="font-label-sm text-label-sm font-bold text-primary-container tracking-tight">CuciKita Tracker</span>
+</div>
+<span class="font-label-sm text-[10px] text-on-surface-variant">Live System</span>
+</div>
+<div class="flex items-center bg-surface-container-low rounded-lg p-1.5 gap-2">
+<span class="material-symbols-outlined text-outline text-xs">search</span>
+<input class="w-full bg-transparent font-receipt-mono text-label-sm text-on-surface focus:outline-none" readonly="" type="text" value="#CK-0038"/>
+<span class="px-1.5 py-0.5 rounded bg-secondary text-on-secondary font-label-sm text-[10px]">Cari</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p- space-xs flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface">Pak Budi Santoso</span>
+<span class="font-label-sm text-[10px] bg-secondary-fixed text-on-secondary-fixed px-2 py-0.5 rounded-full font-bold">WASHING</span>
+</div>
+<div class="relative flex flex-col gap-2 pt-1 pl-3">
+<div class="absolute left-1 top-2 bottom-2 w-0.5 bg-surface-container-high"></div>
+<div class="relative flex items-center gap-2">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary z-10 -ml-2.5"></div>
+<div class="flex justify-between w-full text-xs">
+<span class="font-label-sm text-on-surface">Penimbangan &amp; Tagging</span>
+<span class="text-on-surface-variant font-receipt-mono text-[10px]">10:15 WIB</span>
+</div>
+</div>
+<div class="relative flex items-center gap-2">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary animate-ping absolute -ml-2.5"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-secondary z-10 -ml-2.5"></div>
+<div class="flex justify-between w-full text-xs">
+<span class="font-label-sm text-secondary font-bold">Proses Pencucian (Mesin #2)</span>
+<span class="text-secondary font-receipt-mono text-[10px]">11:20 WIB</span>
+</div>
+</div>
+<div class="relative flex items-center gap-2 opacity-50">
+<div class="w-2.5 h-2.5 rounded-full bg-outline z-10 -ml-2.5"></div>
+<div class="flex justify-between w-full text-xs">
+<span class="font-label-sm text-on-surface-variant">Pengeringan &amp; Setrika Uap</span>
+<span class="text-outline font-receipt-mono text-[10px]">Est. 13:00</span>
+</div>
+</div>
+<div class="relative flex items-center gap-2 opacity-50">
+<div class="w-2.5 h-2.5 rounded-full bg-outline z-10 -ml-2.5"></div>
+<div class="flex justify-between w-full text-xs">
+<span class="font-label-sm text-on-surface-variant">Quality Control &amp; Siap Diambil</span>
+<span class="text-outline font-receipt-mono text-[10px]">Est. 14:30</span>
+</div>
+</div>
+</div>
+<div class="p-2 rounded bg-surface-container-low flex items-center justify-between mt-1">
+<span class="font-label-sm text-xs text-on-surface-variant">Estimasi Siap:</span>
+<span class="font-label-sm text-xs text-primary-container font-bold">Hari ini, 15:00 WIB</span>
+</div>
+</div>
+</div>
+<div class="mt-space-sm flex items-center gap-2">
+<button class="px-space-md py-1.5 bg-surface-container-lowest text-on-surface rounded-lg font-label-sm text-label-sm shadow-sm hover:bg-surface-container-high transition-all flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-xs">content_copy</span>
+              Salin URL Tracker
+            </button>
+<button class="px-space-md py-1.5 bg-primary-container text-on-primary rounded-lg font-label-sm text-label-sm shadow-sm hover:bg-secondary transition-all flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-xs">share</span>
+              Kirim ke WA Budi
+            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>
